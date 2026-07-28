@@ -2,7 +2,9 @@ import {doRegister} from "../functions/doRegister.js"
 
 
 
-const url = 'http://localhost:3000/api/v1'
+const API_URL = import.meta.env.VITE_API_URL;
+
+fetch(`${API_URL}/api/events`);
 
 function showLoading() {
   const loader = document.getElementById('loading')
@@ -44,7 +46,7 @@ export const api = async (endpoint, method = 'GET', body, isJSON = true) => {
       headers['Content-Type'] = 'application/json'
     }
 
-    const res = await fetch(`${url}${endpoint}`, {
+    const res = await fetch(`${API_URL}${endpoint}`, {
       method,
       headers,
       body:
@@ -86,25 +88,4 @@ export const api = async (endpoint, method = 'GET', body, isJSON = true) => {
   }
 }
 
-/* export async function createEventApi(data) {
-  try {
-    const response = await fetch('http://localhost:3000/api/v1/events', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
 
-    if (!response.ok) {
-      throw new Error(`Error HTTP: ${response.status}`)
-    }
-
-    const result = await response.json()
-    console.log('Evento creado:', result)
-
-    return result
-  } catch (error) {
-    console.error('Error enviando evento:', error)
-  }
-} */
