@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* FONTS */
+  --evt-primary-font: 'Abhaya Libre', serif;
+  --evt-secondary-font: 'ABeeZee', sans-serif;
+
+  /*  COLORS */
+  --evt-color-1: #141615;
+  --evt-color-2: #3d3636;
+  --evt-color-3: #ffffff;
+  --evt-color-4: #eeeeee;
+  --evt-color-5: #f5f5f5;
+  --evt-color-6: #d9d9d9;
+  --evt-color-7: #f0f0f0;
+
+  /* BACKGROUND-COLORS */
+  --evt-primary-bg: var(--evt-color-6);
+  --evt-secondary-bg: var(--evt-color-3);
+  --evt-tertiary-bg: var(--evt-color-4);
+
+  /* TEXT-COLORS */
+  --evt-primary-text: var(--evt-color-2);
+  --evt-secondary-text: var(--evt-color-3);
+  --evt-tertiary-text: var(--evt-color-7);
+
+  /* BORDER RADIUS */
+  --evt-primary-br: 8px;
+  --evt-secondary-br: 10px;
+  --evt-tertiary-br: 15px;
+
+  /* SPACINGS */
+  --evt-margin-xs: 10px;
+  --evt-margin-s: 20px;
+  --evt-margin-m: 30px;
+  --evt-margin-l: 40px;
+  --evt-margin-xl: 50px;
+  --evt-margin-section: 100px;
+
+  --evt-padding-xs: 10px;
+  --evt-padding-s: 20px;
+  --evt-padding-m: 30px;
+  --evt-padding-l: 40px;
+  --evt-padding-xl: 50px;
+
+  --evt-gap-xs: 10px;
+  --evt-gap-s: 20px;
+  --evt-gap-m: 30px;
+  --evt-gap-l: 40px;
+  --evt-gap-xl: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--evt-primary-font);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  background-color: var(--evt-color-3);
+  overflow-x: hidden;
+  min-height: 100svh;
+}
+
+/* Responsive helpers */
+:root {
+  --bp-sm: 480px;
+  --bp-md: 720px;
+  --bp-lg: 1100px;
+}
+
+/* Fluid container */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Responsive typography */
+h1 {
+  font-size: clamp(1.4rem, 2.2vw + 0.8rem, 2rem);
+}
+h2 {
+  font-size: clamp(1.2rem, 1.8vw + 0.6rem, 1.5rem);
+}
+p,
+li {
+  font-size: clamp(0.95rem, 1vw + 0.6rem, 1rem);
+}
+
+/* Make images and media fluid */
+img,
+video,
+picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility: center content vertically */
+.center-vert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stack columns on small screens */
+@media (max-width: 720px) {
+  .row {
+    display: block;
+  }
+  .col {
+    width: 100% !important;
+  }
+}
+
+/* Accessibility focus styles */
+a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid rgba(99, 102, 241, 0.12);
+  outline-offset: 2px;
+}

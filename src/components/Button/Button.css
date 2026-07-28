@@ -1,0 +1,11 @@
+.main-button{
+  padding: var(--evt-padding-xs);
+  background-color: var(--evt-color-1);
+  color: var(--evt-secondary-text);
+  border: none;
+  border-radius: var(--evt-primary-br);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--evt-secondary-font);
+}

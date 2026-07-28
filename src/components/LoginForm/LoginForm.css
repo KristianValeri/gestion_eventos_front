@@ -1,0 +1,12 @@
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-content button {
+  margin-top: 4px;
+  width: 100%;
+}
