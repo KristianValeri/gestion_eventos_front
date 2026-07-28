@@ -2,8 +2,7 @@ import {doRegister} from "../functions/doRegister.js"
 
 
 
-const url = 'gestion-eventos-back.vercel.app/api/v1'
-
+const url = 'http://localhost:3000/api/v1'
 
 function showLoading() {
   const loader = document.getElementById('loading')
