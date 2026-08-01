@@ -21,7 +21,7 @@ export const doLogin = async (e) => {
     const res = await api("/users/login", "POST", body)
     localStorage.setItem("token", res.token)
     localStorage.setItem("user", JSON.stringify(res.user))
-    window.location.href = "/home"
+    window.location.href = "/"
   
   
     return res
