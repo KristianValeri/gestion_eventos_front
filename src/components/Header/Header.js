@@ -1,13 +1,14 @@
 import { routes } from '../../utils/routes/routes'
 import { navigate } from '../../utils/functions/navigate'
 import './Header.css'
+import menuIcon from '../../assets/menu.png'
 
 export const Header = () => {
   const header = document.createElement('header')
   const nav = document.createElement('nav')
   const ul = document.createElement('ul')
   const img = document.createElement('img')
-  img.src = './src/assets/menu.png'
+  img.src = menuIcon
   img.alt = 'menu'
   img.classList.add('menu')
   header.appendChild(img)
