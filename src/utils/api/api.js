@@ -1,7 +1,7 @@
 import { clearSession, getToken } from '../session/session'
 
 export const API_ORIGIN = import.meta.env.VITE_API_URL ?? 'http://localhost:3000'
-const API_URL = `${API_ORIGIN}/api/v1`
+const API_URL = `${API_ORIGIN}`
 
 // Loader global: un contador para que con varias peticiones a la vez no se oculte antes de tiempo
 let pending = 0
