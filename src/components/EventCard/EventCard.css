@@ -1,0 +1,70 @@
+.event-card {
+  width: 300px;
+  background-color: var(--evt-color-3);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.event-card.detailed {
+  width: 100%;
+  max-width: 760px;
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-card.detailed .event-image {
+  height: 320px;
+}
+
+.event-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  flex: 1;
+}
+
+.event-body h2 a {
+  color: var(--evt-color-1);
+}
+
+.event-body h2 a:hover {
+  text-decoration: underline;
+}
+
+.event-meta {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.event-card:not(.detailed) .event-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-body .attend,
+.event-body .attend-login {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attend-login {
+  color: var(--evt-color-1);
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .event-card {
+    width: 100%;
+  }
+}

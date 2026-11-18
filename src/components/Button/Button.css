@@ -9,3 +9,17 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: var(--evt-secondary-font);
 }
+.main-button:hover:not(:disabled) {
+  background-color: var(--evt-color-2);
+}
+
+.main-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.main-button.secondary {
+  background: transparent;
+  color: var(--evt-color-1);
+  border: 1px solid var(--evt-color-1);
+}

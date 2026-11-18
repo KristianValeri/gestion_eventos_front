@@ -1,0 +1,29 @@
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--evt-color-3);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-card .auth-toggle {
+  align-self: center;
+  background: transparent;
+  color: var(--evt-color-1);
+  text-decoration: underline;
+}
+
+.auth-card .auth-toggle:hover:not(:disabled) {
+  background: transparent;
+  color: var(--evt-color-2);
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 20px;
+  }
+}

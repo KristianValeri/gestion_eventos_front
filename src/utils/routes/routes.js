@@ -1,38 +1,23 @@
-import { Home } from '../../pages/Home/Home';
-import { CreateEvent } from '../../pages/CreateEvent/CreateEvent';
-import { Login } from '../../pages/Login/Login';
-import { Event } from '../../pages/Event/Event';
+import { Home } from '../../pages/Home/Home'
+import { CreateEvent } from '../../pages/CreateEvent/CreateEvent'
+import { Login } from '../../pages/Login/Login'
+import { Event } from '../../pages/Event/Event'
+import { clearSession } from '../session/session'
+import { navigate } from '../functions/navigate'
 
+// private: solo con sesión · guestOnly: solo sin sesión · text: aparece en el menú
 export const routes = [
+  { path: '/', text: 'Eventos', page: Home },
+  { path: '/event', page: Event },
+  { path: '/events/new', text: 'Crea tu evento', page: CreateEvent, private: true },
+  { path: '/login', text: 'Login', page: Login, guestOnly: true },
   {
-    path: '/',
-    text: 'Home',
-    page: Home
-  },
-  {
-    path: '/events',
-    text: 'Crea tu evento',
-    page: CreateEvent
-  },
-  {
-    path: '/login',
-    text: 'Login',
-    page: Login
-  },
-  {
-  path:"/logout",
-  text:"Logout",
-  page: () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  window.location.href = "/";
-},
-
-},
-  {
-    path: '/event',
-    text: 'Event',
-    page: Event,
-    hidden: true
+    path: '/logout',
+    text: 'Logout',
+    private: true,
+    action: () => {
+      clearSession()
+      navigate('/')
+    }
   }
 ]

@@ -25,7 +25,7 @@ nav li {
 }
 
 nav a {
-  color: var(--evt-terciary-text);
+  color: var(--evt-color-1);
   font-weight: 600;
   transition: color 0.2s ease;
 }
@@ -64,4 +64,8 @@ nav a:hover {
     width: 32px;
     height: 32px;
   }
+}
+
+nav a.active {
+  text-decoration: underline;
 }

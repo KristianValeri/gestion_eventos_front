@@ -1,10 +1,7 @@
+import { el } from '../dom/el'
+
 export const createPage = (id) => {
-  const main = document.querySelector('main')
-  const div = document.createElement('div')
-  main.innerHTML = ''
-  main.appendChild(div)
-  div.id = id
-  return div
+  const page = el('section', { id })
+  document.querySelector('main').replaceChildren(page)
+  return page
 }
-
-

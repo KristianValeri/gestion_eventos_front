@@ -1,0 +1,22 @@
+.message {
+  padding: 10px 14px;
+  border-radius: var(--evt-primary-br);
+  font-size: 0.95rem;
+}
+
+.message-error {
+  background: #fdecec;
+  color: #b91c1c;
+  border: 1px solid #f5c2c2;
+}
+
+.message-success {
+  background: #e8f6ee;
+  color: #166534;
+  border: 1px solid #b7e4c7;
+}
+
+.message-info {
+  background: var(--evt-color-5);
+  color: var(--evt-color-2);
+}

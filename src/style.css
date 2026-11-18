@@ -62,7 +62,7 @@ ul {
 }
 a {
   text-decoration: none;
-  color: black;
+  color: var(--evt-secondary-text);
 }
 body {
   background-color: var(--evt-color-3);
@@ -130,4 +130,32 @@ button:focus,
 input:focus {
   outline: 3px solid rgba(99, 102, 241, 0.12);
   outline-offset: 2px;
+}
+
+main {
+  width: 100%;
+}
+
+.back-link {
+  align-self: flex-start;
+  color: var(--evt-color-1);
+}
+
+/* Loader global de las peticiones (lo controla utils/api/api.js) */
+#global-loader {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: var(--evt-color-1);
+  color: var(--evt-secondary-text);
+  border-radius: var(--evt-primary-br);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#global-loader.visible {
+  opacity: 1;
 }

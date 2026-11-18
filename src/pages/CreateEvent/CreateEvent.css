@@ -1,145 +1,29 @@
-.create-event-form {
-  width: 100%;
+.form.create-event-form {
   max-width: 760px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   padding: 22px;
-  background-color: var(--evt-color-4, #f7f7fb);
+  background-color: var(--evt-color-3);
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
-  box-sizing: border-box;
 }
-.create-event-submit{
+
+/* Descripción, mensajes y botón ocupan toda la fila */
+.create-event-form .field-form:has(textarea),
+.create-event-form .message,
+.create-event-form .form-submit {
   grid-column: 1 / -1;
-  justify-self: start;
-  margin-bottom: 6px;
-}
-.create-event-form .form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
-.create-event-form label {
-  font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.75);
-}
-
-.create-event-form input[type='text'],
-.create-event-form input[type='date'],
-.create-event-form input[type='time'],
-.create-event-form textarea,
-.create-event-form select {
-  width: 100%;
-  min-height: 44px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: white;
-  font-size: 1rem;
-  box-sizing: border-box;
-  resize: vertical;
-}
-
-.create-event-form textarea {
-  min-height: 120px;
-  padding-top: 10px;
-}
-
-.create-event-form input:focus,
-.create-event-form textarea:focus,
-.create-event-form select:focus {
-  outline: none;
-  border-color: var(--evt-color-1, #6c5ce7);
-  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.08);
-}
-
-.create-event-actions {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-.btn {
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.btn-primary {
-  background: linear-gradient(
-    90deg,
-    var(--evt-color-1, #5b21b6),
-    var(--evt-color-2, #06b6d4)
-  );
-  color: white;
-}
-
-.btn-secondary {
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  color: rgba(0, 0, 0, 0.8);
+.create-event-form input[type='file'] {
+  height: auto;
+  padding: 8px;
 }
 
 @media (max-width: 720px) {
-  .create-event-form {
+  .form.create-event-form {
     grid-template-columns: 1fr;
     padding: 16px;
-  }
-
-  .create-event-actions {
-    justify-content: stretch;
-    gap: 8px;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .create-event-form {
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .create-event-submit {
-    grid-column: 1 / -1;
-    justify-self: stretch;
-    width: 100%;
-  }
-
-  .create-event-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-
-  .btn,
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    padding: 12px 14px;
-  }
-
-  .create-event-form textarea {
-    min-height: 140px;
-  }
-}
-
-
-@media (min-width: 1100px) {
-  .create-event-form {
-    max-width: 980px;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 22px;
-  }
-
-  
-  .create-event-form .span-2 {
-    grid-column: span 2;
   }
 }

@@ -1,6 +1,4 @@
-import './Main.css';
+import './Main.css'
+import { el } from '../../utils/dom/el'
 
-export const Main = () => {
-  const main = document.createElement('main');
-  document.body.appendChild(main);
-};
+export const Main = () => document.body.append(el('main'))

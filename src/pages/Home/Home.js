@@ -1,45 +1,56 @@
 import './Home.css'
+import { el } from '../../utils/dom/el'
 import { api } from '../../utils/api/api'
+import { isLogged } from '../../utils/session/session'
 import { createPage } from '../../utils/functions/createPage'
-import { formatDate } from '../../utils/functions/formatDate'
-import { Event } from '../Event/Event'
+import { EventCard } from '../../components/EventCard/EventCard'
+import { Message } from '../../components/Message/Message'
+import { Button } from '../../components/Button/Button'
+import { navigate } from '../../utils/functions/navigate'
 
-export const Home = async () => {
-  const div = createPage('home')
+const SORT_OPTIONS = [
+  ['date', 'Fecha: próximos primero'],
+  ['-date', 'Fecha: más lejanos primero'],
+  ['title', 'Título: A-Z'],
+  ['-title', 'Título: Z-A'],
+  ['recent', 'Publicados recientemente']
+]
 
-  try {
-    let events = await api('/events', 'GET')
+export const Home = () => {
+  const page = createPage('home')
+  const message = Message()
+  const list = el('div', { className: 'event-list' })
 
-    for (const event of events) {
-      div.innerHTML += `
-  <div class="event-card">
-    <h2>
-      <a href="/event?id=${event._id}">
-        ${event.title}
-      </a>
-    </h2>
-    <p>${event.description}</p>
-    <p>${formatDate(event.date)}</p>
-    <p>${event.location}</p>
-    <img
-      src="${event.img}"
-      alt="${event.title}"
-      class="event-image"
-    />
-  </div>
- `
+  const loadEvents = async () => {
+    message.clear()
+    list.replaceChildren(el('p', { className: 'loading-text' }, 'Cargando eventos…'))
+    try {
+      const events = await api(`/events?sort=${sort.value}`)
+      list.replaceChildren(...events.map((event) => EventCard(event)))
+      if (!events.length) message.show('Todavía no hay eventos publicados.', 'info')
+    } catch (error) {
+      list.replaceChildren()
+      message.show(`No se han podido cargar los eventos: ${error.message}`)
     }
-
-    div.querySelectorAll('.event-card a').forEach((link) => {
-      link.addEventListener('click', async (e) => {
-        e.preventDefault()
-        window.history.pushState('', '', link.getAttribute('href'))
-        Event()
-      })
-    })
-  } catch (error) {
-    console.error('Error fetching events:', error)
-    div.innerHTML = `<p class="error-message">No se pudieron cargar los eventos. ¿Está el servidor arrancado?</p>`
   }
-  return div
+
+  const sort = el(
+    'select',
+    { id: 'sort', onChange: loadEvents },
+    SORT_OPTIONS.map(([value, text]) => el('option', { value }, text))
+  )
+
+  page.append(
+    el(
+      'div',
+      { className: 'home-toolbar' },
+      el('h1', {}, 'Eventos'),
+      el('label', { className: 'sort-label', htmlFor: 'sort' }, 'Ordenar por ', sort),
+      isLogged() ? Button({ text: '+ Crear evento', onClick: () => navigate('/events/new') }) : null
+    ),
+    message,
+    list
+  )
+
+  loadEvents()
 }

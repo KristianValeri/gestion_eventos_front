@@ -1,17 +1,10 @@
 import './style.css'
-import { Header } from './components/Header/Header';
-import { Home } from './pages/Home/Home';
-import { routes } from './utils/routes/routes';
-import { Main } from './components/Main/Main';
+import { Main } from './components/Main/Main'
+import { Header } from './components/Header/Header'
+import { renderRoute } from './utils/functions/navigate'
+import { SESSION_CHANGE } from './utils/session/session'
 
-const renderCurrentRoute = () => {
-  const route = routes.find((r) => r.path === window.location.pathname)
-  const page = route ? route.page : Home
-  page()
-}
-
-Header();
-Main();
-renderCurrentRoute();
-
-window.addEventListener('popstate', renderCurrentRoute);
+Main()
+renderRoute()
+// Login, registro, logout o token caducado: el menú se actualiza solo
+window.addEventListener(SESSION_CHANGE, Header)

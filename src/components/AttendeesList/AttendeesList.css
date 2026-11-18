@@ -1,0 +1,23 @@
+.attendees {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attendees ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.attendees li {
+  background: var(--evt-color-5);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.attendees-empty {
+  color: rgba(0, 0, 0, 0.6);
+}
